@@ -16,5 +16,4 @@
     WHERE department_name like "Finance" OR department_name like "Accounting");
 
 -- 4) Borrar los departamentos que no tienen empleados
-    INSERT INTO departments(department_id, department_name ,location_id)
-    VALUES ("12" , "F.A" , (SELECT location_id FROM locations WHERE city like "%C.A.B.A%"));
+ DELETE FROM departments WHERE department_id NOT IN (SELECT department_id FROM employees);
